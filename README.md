@@ -1,4 +1,20 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [ansible-windows-iis](#ansible-windows-iis)
+  - [Requirements](#requirements)
+  - [Role Variables](#role-variables)
+  - [Dependencies](#dependencies)
+  - [Example Playbook](#example-playbook)
+  - [License](#license)
+  - [Author Information](#author-information)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # ansible-windows-iis
+
+An [Ansible](https://www.ansible.com) role to install [Windows - IIS](https://www.iis.net/)
 
 ## Requirements
 
@@ -45,6 +61,13 @@ windows_iis_websites: []
 ## Dependencies
 
 ## Example Playbook
+
+```yaml
+---
+- hosts: windows_iis_servers
+  roles:
+    - role: ansible-windows-iis
+```
 
 ## License
 
