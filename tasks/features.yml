@@ -4,16 +4,14 @@
     include_management_tools: "{{ item['include_management_tools']|default(omit) }}"
     include_sub_features: "{{ item['include_sub_features']|default(omit) }}"
     name: "{{ item['name'] }}"
-    state: "{{ item['state'] }}"
+    state: "{{ item['state'] | default('present') }}"
   register: _windows_iis_services
   with_items: "{{ windows_iis_role }}"
 
 - name: features | Managing IIS Subfeatures
   win_feature:
     name: "{{ item[1]['name'] }}"
-    state: "{{ item[1]['state'] }}"
+    state: "{{ item[1]['state'] | default('present') }}"
   register: _windows_iis_subfeatures
-  with_subelements:
-    - "{{ windows_iis_role }}"
-    - subfeatures
+  loop: "{{ windows_iis_role | subelements('subfeatures', skip_missing=True) }}"
   when: item[0]['state']|lower == 'present'
