@@ -16,3 +16,12 @@
     ssl: "{{ item['ssl']|default(omit) }}"
     state: "{{ item['state'] }}"
   with_items: "{{ windows_iis_websites }}"
+
+- name: Upload website files
+  win_copy:
+    src: "{{ item['upload_files'] }}"
+    dest: "{{ item['physical_path'] }}\\"
+  when:
+    - item['upload_files'] is defined
+    - item['upload_files'] | length > 0
+  with_items: "{{ windows_iis_websites }}"

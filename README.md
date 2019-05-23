@@ -56,6 +56,13 @@ windows_iis_websites: []
   #   physical_path: c:\inetpub\wwwroot
   #   port: 80
   #   state: started
+  #   upload_files: path/to/dir/
+
+`upload_files` can be either a single file or a directory. If it is a directory
+ending with a `/`, then the directory contents will be uploaded. If it is
+a directory not ending with `/`, the directory itself will be uploaded under
+`physical_path`.
+
 ```
 
 ## Dependencies

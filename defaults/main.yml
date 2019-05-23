@@ -33,3 +33,4 @@ windows_iis_websites: []
   #   physical_path: c:\inetpub\wwwroot
   #   port: 80
   #   state: started
+  #   upload_files: path/to/dir/

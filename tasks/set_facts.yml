@@ -5,7 +5,7 @@
   with_items: "{{ windows_iis_role }}"
   when: >
         item['name'] == "Web-Server" and
-        item['state']|lower == "present"
+        item['state'] | default('present') | lower == "present"
 
 - name: set_facts | Setting Web Server Fact
   set_fact:
@@ -13,4 +13,4 @@
   with_items: "{{ windows_iis_role }}"
   when: >
         item['name'] == "Web-Server" and
-        item['state']|lower == "absent"
+        item['state'] | default('present') | lower == "absent"
