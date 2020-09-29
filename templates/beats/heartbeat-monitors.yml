@@ -1,0 +1,12 @@
+# vi: ft=yaml.ansible.jinja2
+---
+
+- name: IIS websites running
+  id: "{{ windows_iis_monitor_id | d('windows_iis_monitor') }}"
+  type: http
+  enabled: {{ windows_iis_monitor_enabled | d(false) }}
+  schedule: '@every 5s'
+  tags:
+    - iis
+  hosts: {{ windows_iis_monitor_hosts }}
+  # A list of urls, eg ['http://domain.name:1234']
