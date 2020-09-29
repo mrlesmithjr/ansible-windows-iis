@@ -6,5 +6,7 @@
   type: http
   enabled: {{ windows_iis_monitor_enabled | d(false) }}
   schedule: '@every 5s'
+  tags:
+    - iis
   hosts: {{ windows_iis_monitor_hosts }}
   # A list of urls, eg ['http://domain.name:1234']
